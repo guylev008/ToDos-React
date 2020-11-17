@@ -14,13 +14,10 @@ const theme = {
 		black: '#000000',
 		lightBlack: '#485465',
 		gray: '#808080',
+		darkGray: '#494a4b',
 		white: '#ffffff',
-		lightBlue: '#169bd5',
-		lightGray: '#ebebeb',
-		darkBlue: '#225a78',
-		green: '#77992e',
-		orange: '#f48d29',
-		red: '#ea1111'
+		orange: '#fdc66e',
+		yellow: '#FFEAA7'
 	}
 };
 

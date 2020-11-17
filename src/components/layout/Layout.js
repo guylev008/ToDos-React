@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import appBackground from '../../assets/appBackground.jpg';
+
 
 const Layout = ({ children }) => {
 	return (
@@ -21,10 +21,9 @@ const Container = styled.div`
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background-image: url(${appBackground});
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	font-family: "Architects Daughter", sans-serif;
+	background-color: ${props => props.theme.colors.yellow};
+	text-align: center;
 `;
 
 export default Layout;
