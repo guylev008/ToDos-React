@@ -1,0 +1,5 @@
+const FETCH_TASKS_SUCCESS = 'FETCH_TASKS_SUCCESS';
+
+export default {
+    FETCH_TASKS_SUCCESS
+}
