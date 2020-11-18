@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import appBackground from '../../assets/appBackground.jpg';
 
 export default styled.div`
 	content: '';
@@ -11,10 +10,8 @@ export default styled.div`
 	padding: 20px;
 	padding-top: 10vh;
 	width: 100%;
-	background-image: url(${appBackground});
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	font-family: "Architects Daughter", sans-serif;
+	background-color: ${props => props.theme.colors.yellow};
 	& h1 {
 		font-weight: bold;
 	}
