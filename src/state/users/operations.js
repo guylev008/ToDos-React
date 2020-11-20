@@ -1,4 +1,4 @@
-import { loginUser, signUpUser } from '../../api/user';
+import { loginUser, signUpUser, fetchUserDetails } from '../../api/user';
 import { loginSuccess, loginFailed, signUpSuccess, signUpFailed } from '../users/actions';
 import Cookies from 'universal-cookie';
 
@@ -9,7 +9,7 @@ export const handleLogin = async (email, password) => {
 			dispatch(loginSuccess(response));
 			const cookies = new Cookies();
 			cookies.remove('userToken');
-			cookies.set('userToken', response.data.token, { path: '/', expires: new Date(new Date().getTime() + 60 * 60 * 24 * 1000) });
+			cookies.set('userToken', response.token, { path: '/', expires: new Date(new Date().getTime() + 60 * 60 * 24 * 1000) });
 		} catch (error) {
 			dispatch(loginFailed(error));
 		}
@@ -25,7 +25,20 @@ export const handleSignUp = async (name, email, password) => {
 			cookies.remove('userToken');
 			cookies.set('userToken', response.token, { path: '/', expires: new Date(new Date().getTime() + 60 * 60 * 24 * 1000) });
 		} catch (error) {
-			console.log(error);
+			dispatch(signUpFailed(error));
+		}
+	};
+};
+
+export const fetchUser = async token => {
+	return async function (dispatch) {
+		try {
+			const response = await fetchUserDetails(name, email, password);
+			dispatch(signUpSuccess(response));
+			const cookies = new Cookies();
+			cookies.remove('userToken');
+			cookies.set('userToken', response.token, { path: '/', expires: new Date(new Date().getTime() + 60 * 60 * 24 * 1000) });
+		} catch (error) {
 			dispatch(signUpFailed(error));
 		}
 	};

@@ -24,7 +24,20 @@ export const signUpUser = async (name, email, password) => {
 		});
 		return response.data;
 	} catch (error) {
-		console.log(error);
+		throw new Error(error);
+	}
+};
+
+export const fetchUserDetails = async token => {
+	const path = 'users';
+	try {
+		const response = await baseTodoApiRequest().get(path, {
+			headers: {
+				Authorization: `Bearer + ${token}`
+			}
+		});
+		return response.data;
+	} catch (error) {
 		throw new Error(error);
 	}
 };

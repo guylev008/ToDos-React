@@ -12,7 +12,7 @@ const LoginForm = () => {
 	const history = useHistory();
 
 	const handleLoginSubmit = async (userName, password) => {
-		dispatch(await handleLogin(userName, password));
+		await dispatch(await handleLogin(userName, password));
 		history.push(appRoutes.todo);
 	};
 

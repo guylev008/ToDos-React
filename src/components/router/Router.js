@@ -1,6 +1,7 @@
 import React from 'react';
 import routes from '../../appRoutes';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import AuthRouteItem from './AuthRouteItem';
 import RouteItem from './RouteItem';
 import HomePage from '../home/HomePage';
 import LoginPage from '../login/LoginPage';
@@ -15,8 +16,9 @@ const ApplicationRouter = () => {
 				<Switch>
 					<RouteItem exact component={LoginPage} path={routes.login} />
 					<RouteItem exact component={SignUpPage} path={routes.signup} />
-					<RouteItem exact component={HomePage} path={routes.todo} />
-					<Route path={routes.notFound} component={NotFoundPage} />
+					<AuthRouteItem exact component={HomePage} path={routes.todo} />
+					<RouteItem path={routes.notFound} component={NotFoundPage} />
+					<Redirect from="/" to={routes.login} />
 					<Redirect from="*" to={routes.notFound} />
 				</Switch>
 			</ErrorBoundary>

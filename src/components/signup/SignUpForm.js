@@ -12,14 +12,14 @@ const SignUpForm = () => {
 	const history = useHistory();
 
 	const handleSignUpSubmit = async (name, userName, password) => {
-		dispatch(await handleSignUp(name, userName, password));
+		await dispatch(await handleSignUp(name, userName, password));
 		history.push(appRoutes.todo);
 	};
 
 	return (
 		<Formik
 			validationSchema={validationSchema()}
-			onSubmit={values => handleSignUpSubmit(values.fullName, values.userName, values.password)}
+			onSubmit={async values => await handleSignUpSubmit(values.fullName, values.userName, values.password)}
 			initialValues={{
 				fullName: '',
 				userName: '',

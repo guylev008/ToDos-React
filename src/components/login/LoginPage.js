@@ -25,8 +25,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
 	max-width: 600px;
-	padding-left: 20px;
-	padding-right: 20px;
+	width: 15%;
 	flex-shrink: 0;
 `;
 
