@@ -4,16 +4,18 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import RouteItem from './RouteItem';
 import HomePage from '../home/HomePage';
 import LoginPage from '../login/LoginPage';
+import SignUpPage from '../signup/SignUpPage';
 import ErrorBoundary from '../errors/ErrorBoundry';
 import NotFoundPage from '../errors/NotFoundPage';
 
 const ApplicationRouter = () => {
 	return (
-		<Router basename="/login">
+		<Router basename="/">
 			<ErrorBoundary>
 				<Switch>
-					<RouteItem exact component={HomePage} path={routes.home} />
 					<RouteItem exact component={LoginPage} path={routes.login} />
+					<RouteItem exact component={SignUpPage} path={routes.signup} />
+					<RouteItem exact component={HomePage} path={routes.todo} />
 					<Route path={routes.notFound} component={NotFoundPage} />
 					<Redirect from="*" to={routes.notFound} />
 				</Switch>

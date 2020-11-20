@@ -1,17 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import LoginForm from './LoginForm';
+import SignUpForm from './SignUpForm';
 import BigTitle from '../common/BigTitle';
-import { Link } from 'react-router-dom';
-import appRoutes from '../../appRoutes';
 
-const LoginPage = () => {
+const SignUpPage = () => {
 	return (
 		<Wrapper>
 			<Container>
-				<BigTitle titleText={'Login'}></BigTitle>
-				<LoginForm />
-				<Link to={appRoutes.signup}>SignUp</Link>
+				<BigTitle titleText={'SignUp'}></BigTitle>
+				<SignUpForm />
 			</Container>
 		</Wrapper>
 	);
@@ -30,4 +27,4 @@ const Container = styled.div`
 	flex-shrink: 0;
 `;
 
-export default LoginPage;
+export default SignUpPage;

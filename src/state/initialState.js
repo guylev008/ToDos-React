@@ -1,4 +1,7 @@
 export default {
-	user: null,
+	users: {
+		name: null,
+		token: null
+	},
 	tasks: null
 };
