@@ -1,5 +1,5 @@
 import { loginUser, signUpUser, fetchUserDetails } from '../../api/user';
-import { loginSuccess, loginFailed, signUpSuccess, signUpFailed } from '../users/actions';
+import { loginSuccess, loginFailed, signUpSuccess, signUpFailed, fetchUserSuccess, fetchUserFailed } from '../users/actions';
 import Cookies from 'universal-cookie';
 
 export const handleLogin = async (email, password) => {
@@ -33,13 +33,10 @@ export const handleSignUp = async (name, email, password) => {
 export const fetchUser = async token => {
 	return async function (dispatch) {
 		try {
-			const response = await fetchUserDetails(name, email, password);
-			dispatch(signUpSuccess(response));
-			const cookies = new Cookies();
-			cookies.remove('userToken');
-			cookies.set('userToken', response.token, { path: '/', expires: new Date(new Date().getTime() + 60 * 60 * 24 * 1000) });
+			const response = await fetchUserDetails(token);
+			dispatch(fetchUserSuccess({ user: response, token: token }));
 		} catch (error) {
-			dispatch(signUpFailed(error));
+			dispatch(fetchUserFailed(error));
 		}
 	};
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = props => {
-	return <AddItemButton onClick={props.handleClick()}>{props.text}</AddItemButton>;
+	return <AddItemButton onClick={async () => await props.handleClick(props.data)}>{props.text}</AddItemButton>;
 };
 
 const AddItemButton = styled.button`

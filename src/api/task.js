@@ -1,16 +1,26 @@
 import baseTodoApiRequest from './base';
 
-export const fetchTasks = (token) => async () => {
-    const path = 'tasks';
-    try {
-        const response = await baseTodoApiRequest().get(
-            path,
-            {
-                headers: {Authorization: 'Bearer' + token}
-            }
-		);
+export const fetchTasks = async token => {
+	const path = 'tasks';
+	try {
+		const response = await baseTodoApiRequest().get(path, {
+			headers: { Authorization: token }
+		});
 		return response.data;
-    } catch (error) {
-        throw new Error(error)
-    }
-}
+	} catch (error) {
+		throw new Error(error);
+	}
+};
+
+export const saveNewTask = async (token, description, completed) => {
+	const path = 'tasks';
+	try {
+		const response = await baseTodoApiRequest().post(path, {
+			description,
+			completed
+		});
+		return response.data;
+	} catch (error) {
+		throw new Error(error);
+	}
+};

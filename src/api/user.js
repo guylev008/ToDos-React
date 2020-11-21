@@ -2,7 +2,6 @@ import baseTodoApiRequest from './base';
 
 export const loginUser = async (email, password) => {
 	const path = 'users/login';
-	debugger;
 	try {
 		const response = await baseTodoApiRequest().post(path, {
 			email,
@@ -29,11 +28,11 @@ export const signUpUser = async (name, email, password) => {
 };
 
 export const fetchUserDetails = async token => {
-	const path = 'users';
+	const path = 'users/me';
 	try {
 		const response = await baseTodoApiRequest().get(path, {
 			headers: {
-				Authorization: `Bearer + ${token}`
+				Authorization: `${token}`
 			}
 		});
 		return response.data;

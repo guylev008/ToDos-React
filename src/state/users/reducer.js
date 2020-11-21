@@ -28,6 +28,24 @@ export default function usersReducer(state = initialState.users, action) {
 			});
 		}
 
+		case types.FETCH_USER_SUCCESS: {
+			return Object.assign({}, state, {
+				name: action.user.name,
+				token: action.token
+			});
+		}
+
+		case types.FETCH_USER_FAILED: {
+			return state;
+		}
+
+		case types.LOGOUT_USER: {
+			return Object.assign({}, state, {
+				name: null,
+				token: null
+			});
+		}
+
 		default:
 			return state;
 	}

@@ -21,3 +21,18 @@ export const signUpFailed = error => ({
 	type: types.SIGNUP_FAILED,
 	error
 });
+
+export const fetchUserSuccess = ({ user, token }) => ({
+	type: types.FETCH_USER_SUCCESS,
+	user,
+	token
+});
+
+export const fetchUserFailed = error => ({
+	type: types.FETCH_USER_FAILED,
+	error
+});
+
+export const logoutUser = () => ({
+	type: types.LOGOUT_USER
+});

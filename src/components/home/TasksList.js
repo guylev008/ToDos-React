@@ -1,30 +1,33 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components'
-import Task from './Task'
+import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import { setTaskStatus } from '../../state/tasks/actions';
+import Task from './Task';
 
-const TasksList = (props) => {
-    const items = [{id: 1, task: 'Work'}];//useSelector(tasks);
-    return (
-        <ItemsListContainer>
-            <List>
-                {items.map((item, index) => (
-                  <Task
-                    key={index}
-                    id={item.id}
-                    task={item.task}
-                    onCheck={props.checkItem}
-                 />
-                ))}
-            </List>
-        </ItemsListContainer>
-    )
-}
+const TasksList = props => {
+	const dispatch = useDispatch();
+
+	const handleTaskStatus = (value, taskId) => {
+		dispatch(setTaskStatus(taskId, value));
+	};
+
+	return (
+		<ItemsListContainer>
+			{props.tasks && (
+				<List>
+					{props.tasks.map((item, index) => (
+						<Task key={index} id={item.id} task={item.description} onCheck={props.checkItem} handleCheckboxChange={handleTaskStatus} />
+					))}
+				</List>
+			)}
+		</ItemsListContainer>
+	);
+};
 
 const ItemsListContainer = styled.div`
-    margin: 50px 0 0 30px;
-`
+	margin: 50px 0 0 30px;
+`;
 
-const List = styled.ul``
+const List = styled.ul``;
 
-export default TasksList
+export default TasksList;

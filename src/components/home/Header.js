@@ -8,7 +8,7 @@ const Header = props => {
 		<React.Fragment>
 			<BigTitle titleText={"Todo's"}></BigTitle>
 			<InputText input={props.input} setInput={props.setInput} />
-			<Button handleClick={props.addItem} text={'Add'} />
+			<Button handleClick={props.addItem} text={'Add'} data={props.input} />
 		</React.Fragment>
 	);
 };
