@@ -1,9 +1,8 @@
 import axios from 'axios';
-import Cookies from 'universal-cookie';
+import { getUserTokenFromCookie } from '../utils/authUtils';
 
 const baseTodoApiRequest = () => {
-	const cookies = new Cookies();
-	const token = cookies.get('userToken');
+	const token = getUserTokenFromCookie();
 
 	return axios.create({
 		baseURL: 'http://localhost:3200/',

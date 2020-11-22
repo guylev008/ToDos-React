@@ -1,5 +1,8 @@
 export default {
-	users: null,
+	users: {
+		name: null,
+		token: null
+	},
 	tasks: {
 		userTasks: null
 	}

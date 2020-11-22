@@ -1,22 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { setTaskStatus } from '../../state/tasks/actions';
+
 import Task from './Task';
 
 const TasksList = props => {
-	const dispatch = useDispatch();
-
-	const handleTaskStatus = (value, taskId) => {
-		dispatch(setTaskStatus(taskId, value));
-	};
-
 	return (
 		<ItemsListContainer>
 			{props.tasks && (
 				<List>
 					{props.tasks.map((item, index) => (
-						<Task key={index} id={item.id} task={item.description} onCheck={props.checkItem} handleCheckboxChange={handleTaskStatus} />
+						<Task key={index} id={item.id} task={item} onCheck={props.checkItem} handleCheckboxChange={props.handleTaskStatus} />
 					))}
 				</List>
 			)}

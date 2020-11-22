@@ -1,5 +1,5 @@
-import { fetchTasks, saveNewTask } from '../../api/task';
-import { fetchTasksSuccess, saveTaskSuccess } from './actions';
+import { fetchTasks, saveNewTask, updateTask } from '../../api/task';
+import { fetchTasksSuccess, saveTaskSuccess, setTaskStatus } from './actions';
 
 export const fetchUserTasks = async token => {
 	return async function (dispatch) {
@@ -10,12 +10,21 @@ export const fetchUserTasks = async token => {
 	};
 };
 
-export const saveTask = async (token, description) => {
+export const saveTask = async description => {
 	return async function (dispatch) {
 		try {
 			const completed = false;
-			const response = await saveNewTask(token, description, completed);
+			const response = await saveNewTask(description, completed);
 			dispatch(saveTaskSuccess(response));
+		} catch (error) {}
+	};
+};
+
+export const updateTaskStatus = async (taskId, completed) => {
+	return async function (dispatch) {
+		try {
+			await updateTask(taskId, completed);
+			dispatch(setTaskStatus(taskId, completed));
 		} catch (error) {}
 	};
 };

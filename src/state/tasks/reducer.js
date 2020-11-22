@@ -1,6 +1,5 @@
 import initialState from '../initialState';
 import types from './types';
-import update from 'immutability-helper';
 
 export default function tasksReducer(state = initialState.tasks, action) {
 	switch (action.type) {
@@ -9,21 +8,24 @@ export default function tasksReducer(state = initialState.tasks, action) {
 		}
 
 		case types.SET_TASK_STATUS: {
-			let newState = {};
-			for (const key in state) {
-				if (state[key]._id === action.taskId) {
-					state[key].completed = action.isChecked;
+			let tasks = [];
+			tasks = state.userTasks.map(task => {
+				if (task._id === action.taskId) {
+					task.completed = action.isChecked;
 				}
-				Object.assign(newState, state[key]);
-			}
-			return Object.assign({}, state, { userTasks: newState });
+				return task;
+			});
+			return Object.assign({}, state, { userTasks: tasks });
 		}
 
 		case types.SAVE_TASK_SUCCESS: {
-			debugger;
-			let x = Object.assign({}, state, action.task);
-			console.log(x);
-			return x;
+			let tasks = [...state.userTasks];
+			tasks.push(action.task);
+			return Object.assign({}, state, { userTasks: tasks });
+		}
+
+		case types.RESET_TASKS: {
+			return Object.assign({}, state, initialState.tasks);
 		}
 
 		default:

@@ -5,8 +5,9 @@ const Checkbox = props => {
 	return (
 		<Input
 			type="checkbox"
-			onChange={event => {
-				props.handleCheckboxChange(event.target.checked, props.taskId);
+			checked={props.isCompleted}
+			onChange={async event => {
+				await props.handleCheckboxChange(event.target.checked, props.taskId);
 			}}
 		/>
 	);

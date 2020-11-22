@@ -12,3 +12,7 @@ export const saveTaskSuccess = task => ({
 	type: types.SAVE_TASK_SUCCESS,
 	task
 });
+
+export const resetTasks = () => ({
+	type: types.RESET_TASKS
+});

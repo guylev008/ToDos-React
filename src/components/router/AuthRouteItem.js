@@ -1,13 +1,12 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import Layout from '../layout/Layout';
-import Cookies from 'universal-cookie';
 import appRoutes from '../../appRoutes';
+import { getUserTokenFromCookie } from '../../utils/authUtils';
 
 const AuthRouteItem = ({ component: Component, ...restProps }) => {
 	const isAuthenticated = () => {
-		const cookies = new Cookies();
-		return cookies.get('userToken');
+		return getUserTokenFromCookie();
 	};
 
 	return (

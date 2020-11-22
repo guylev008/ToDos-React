@@ -5,8 +5,8 @@ import Checkbox from '../common/Checkbox';
 const Task = ({ id, task, handleCheckboxChange }) => {
 	return (
 		<Container id="container">
-			<Item>{task}</Item>
-			<Checkbox handleCheckboxChange={handleCheckboxChange} taskId={id} />
+			<Item>{task.description}</Item>
+			<Checkbox handleCheckboxChange={handleCheckboxChange} taskId={id} isCompleted={task.completed} />
 		</Container>
 	);
 };
