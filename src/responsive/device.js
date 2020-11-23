@@ -1,22 +1,15 @@
 const size = {
-	mobileS: '320px',
-	mobileM: '375px',
-	mobileL: '525px',
+	mobileS: '500px',
+	mobileL: '600px',
 	tablet: '768px',
-	laptop: '1024px',
-	laptopL: '1440px',
-	desktop: '2560px'
+	desktop: '850px'
 };
 
 const device = {
-	mobileS: `(min-width: ${size.mobileS})`,
-	mobileM: `(min-width: ${size.mobileM})`,
-	mobileL: `(min-width: ${size.mobileL})`,
-	tablet: `(min-width: ${size.tablet})`,
-	laptop: `(min-width: ${size.laptop})`,
-	laptopL: `(min-width: ${size.laptopL})`,
-	desktop: `(min-width: ${size.desktop})`,
-	desktopL: `(min-width: ${size.desktop})`
+	mobileS: `(min-height: ${size.mobileS}) and (max-height: ${size.mobileL})`,
+	mobileL: `(min-height: ${size.mobileL}) and (max-height: ${size.tablet})`,
+	tablet: `(min-height: ${size.tablet}) and (max-height: ${size.desktop})`,
+	desktop: `(min-height: ${size.desktop})`
 };
 
 export default device;

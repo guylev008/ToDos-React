@@ -30,7 +30,6 @@ const HomePage = () => {
 				await dispatch(await fetchUser(token));
 			}
 
-			debugger;
 			if (!tasks) {
 				const token = getUserTokenFromCookie();
 				await dispatch(await fetchUserTasks(token));

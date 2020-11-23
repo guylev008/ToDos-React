@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Checkbox from '../common/Checkbox';
+import device from '../../responsive/device';
 
 const Task = ({ id, task, handleCheckboxChange }) => {
 	return (
@@ -23,6 +24,14 @@ const Item = styled.li`
 	font-size: ${props => props.theme.fontSizes.fontSize0};
 	font-weight: 300;
 	color: ${props => props.theme.colors.lightBlack};
+
+	@media ${device.mobileL} {
+		font-size: ${props => props.theme.fontSizes.fontSize4};
+	}
+
+	@media ${device.mobiles} {
+		font-size: ${props => props.theme.fontSizes.fontSize4};
+	}
 `;
 
 export default Task;

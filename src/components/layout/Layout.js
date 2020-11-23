@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const Layout = ({ children }) => {
 	return (
 		<Container>
@@ -21,9 +20,12 @@ const Container = styled.div`
 	left: 0;
 	height: 100%;
 	width: 100%;
-	font-family: "Architects Daughter", sans-serif;
+	font-family: 'Architects Daughter', sans-serif;
 	background-color: ${props => props.theme.colors.yellow};
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	overflow-y: scroll;
 `;
 
 export default Layout;

@@ -3,6 +3,8 @@ const theme = {
 		fontSize0: '22px',
 		fontSize1: '14px',
 		fontSize2: '21px',
+		fontSize3: '26px',
+		fontSize4: '18px'
 	},
 	colors: {
 		black: '#000000',
@@ -11,7 +13,7 @@ const theme = {
 		darkGray: '#494a4b',
 		white: '#ffffff',
 		orange: '#fdc66e',
-		lightOrange: "#494a4b",
+		lightOrange: '#494a4b',
 		yellow: '#FFEAA7'
 	}
 };
